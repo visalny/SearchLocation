@@ -30,7 +30,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-core:16.0.4'
     implementation 'com.google.firebase:firebase-firestore:17.1.2'
     //search like google play
-    implementation 'com.miguelcatalan:materialsearchview:1.4.0'
+    //implementation 'com.miguelcatalan:materialsearchview:1.4.0'
     //butter knife
     implementation 'com.jakewharton:butterknife:8.8.1'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
