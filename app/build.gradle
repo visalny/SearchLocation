@@ -27,6 +27,8 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    //search view as google play
+    implementation 'com.miguelcatalan:materialsearchview:1.4.0'
     //circle image
     implementation 'de.hdodenhof:circleimageview:2.2.0'
     //firebase

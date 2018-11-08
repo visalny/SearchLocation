@@ -11,8 +11,11 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.Toast;
 
+import com.miguelcatalan.materialsearchview.MaterialSearchView;
 import com.weather.pc.finalckcc_java.adapter.MyPagerAdapter;
 import com.weather.pc.finalckcc_java.entity.MyTab;
 import com.weather.pc.finalckcc_java.fragment.HomeFragment;
@@ -29,18 +32,17 @@ public class MainActivity extends AppCompatActivity {
     private ViewPager viewPager;
     private DrawerLayout drawer_layout;
     private NavigationView nav_view;
+    private MaterialSearchView searchView;
+    private FrameLayout container_search;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        toolbar=findViewById(R.id.toolbar);
-        tabLayout=findViewById(R.id.tablayout);
-        viewPager=findViewById(R.id.viewpager);
-        drawer_layout=findViewById(R.id.drawer_layout);
-        nav_view=findViewById(R.id.nav_view);
+        initview();
+
+
 //  set toolbar as actionbar
         setSupportActionBar(toolbar);
-        toolbar.setTitle("");
 // setup tablayou and viewpager
         setUpTabviewpager();
 // set up navigation button
@@ -49,6 +51,17 @@ public class MainActivity extends AppCompatActivity {
 //        drawerToggle.syncState();
 
 
+
+
+    }
+
+    private void initview(){
+        toolbar=findViewById(R.id.toolbar);
+        tabLayout=findViewById(R.id.tablayout);
+        viewPager=findViewById(R.id.viewpager);
+        // drawer_layout=findViewById(R.id.drawer_layout);
+        searchView=findViewById(R.id.search_view);
+        container_search=findViewById(R.id.container_search);
     }
 
 
@@ -69,7 +82,28 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
+        //
+        getMenuInflater().inflate(R.menu.search_menu,menu);
         getMenuInflater().inflate(R.menu.language_item_menu,menu);
+        MenuItem item = menu.findItem(R.id.item_search);
+        searchView.setMenuItem(item);
+        searchView.setSuggestions(getResources().getStringArray(R.array.query_suggestions));
+        searchView.setOnQueryTextListener(new MaterialSearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                //Do some magic
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                ViewGroup.LayoutParams params=container_search.getLayoutParams();
+                params.height =ViewGroup.LayoutParams.WRAP_CONTENT;
+                container_search.setLayoutParams(params);
+                //Do some magic
+                return false;
+            }
+        });
         return true;
     }
 
