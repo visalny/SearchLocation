@@ -44,9 +44,9 @@ public class MainActivity extends AppCompatActivity {
 // setup tablayou and viewpager
         setUpTabviewpager();
 // set up navigation button
-        ActionBarDrawerToggle drawerToggle=new ActionBarDrawerToggle(this,drawer_layout,toolbar,R.string.open,R.string.close);
-        drawer_layout.addDrawerListener(drawerToggle);
-        drawerToggle.syncState();
+//        ActionBarDrawerToggle drawerToggle=new ActionBarDrawerToggle(this,drawer_layout,toolbar,R.string.open,R.string.close);
+//        drawer_layout.addDrawerListener(drawerToggle);
+//        drawerToggle.syncState();
 
 
     }
