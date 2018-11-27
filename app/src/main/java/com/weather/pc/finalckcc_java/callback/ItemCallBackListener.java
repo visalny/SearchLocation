@@ -1,5 +1,5 @@
 package com.weather.pc.finalckcc_java.callback;
 
-public interface HomeCallBackListener {
+public interface ItemCallBackListener {
     void ItemhomeClick(int id);
 }

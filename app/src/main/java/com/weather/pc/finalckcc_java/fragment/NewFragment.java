@@ -10,13 +10,15 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.weather.pc.finalckcc_java.R;
 import com.weather.pc.finalckcc_java.adapter.HomeAdapter;
 import com.weather.pc.finalckcc_java.adapter.NewItemAdapter;
+import com.weather.pc.finalckcc_java.callback.ItemCallBackListener;
 
 
-public class NewFragment extends Fragment {
+public class NewFragment extends Fragment implements ItemCallBackListener {
 
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -62,7 +64,12 @@ public class NewFragment extends Fragment {
 
         new_item=view.findViewById(R.id.new_item);
         new_item.setLayoutManager(new GridLayoutManager(getContext(),3));
-        NewItemAdapter adapter=new NewItemAdapter(getContext());
+        NewItemAdapter adapter=new NewItemAdapter(this,getContext());
         new_item.setAdapter(adapter);
+    }
+
+    @Override
+    public void ItemhomeClick(int id) {
+        Toast.makeText(getContext(), ""+id, Toast.LENGTH_SHORT).show();
     }
 }

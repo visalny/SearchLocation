@@ -10,18 +10,17 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.PopupMenu;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.weather.pc.finalckcc_java.R;
-import com.weather.pc.finalckcc_java.callback.HomeCallBackListener;
+import com.weather.pc.finalckcc_java.callback.ItemCallBackListener;
 
 public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.HomeViewHolder> {
 
     private Context context;
-    private HomeCallBackListener listener;
+    private ItemCallBackListener listener;
 
 
-    public HomeAdapter(Context context, HomeCallBackListener listener) {
+    public HomeAdapter(Context context, ItemCallBackListener listener) {
         this.context = context;
         this.listener = listener;
     }

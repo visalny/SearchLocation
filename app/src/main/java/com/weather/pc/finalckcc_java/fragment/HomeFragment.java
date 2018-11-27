@@ -8,19 +8,16 @@ import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.PopupMenu;
 import android.widget.Toast;
 
 import com.weather.pc.finalckcc_java.R;
 import com.weather.pc.finalckcc_java.adapter.HomeAdapter;
-import com.weather.pc.finalckcc_java.callback.HomeCallBackListener;
+import com.weather.pc.finalckcc_java.callback.ItemCallBackListener;
 
 
-public class HomeFragment extends Fragment implements HomeCallBackListener {
+public class HomeFragment extends Fragment implements ItemCallBackListener {
 
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
