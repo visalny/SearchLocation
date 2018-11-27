@@ -12,12 +12,15 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.PopupMenu;
+import android.widget.Toast;
 
 import com.weather.pc.finalckcc_java.R;
 import com.weather.pc.finalckcc_java.adapter.HomeAdapter;
+import com.weather.pc.finalckcc_java.callback.HomeCallBackListener;
 
 
-public class HomeFragment extends Fragment {
+public class HomeFragment extends Fragment implements HomeCallBackListener {
 
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
@@ -61,9 +64,13 @@ public class HomeFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         home_item=view.findViewById(R.id.home_item);
         home_item.setLayoutManager(new GridLayoutManager(getContext(),3));
-        HomeAdapter adapter=new HomeAdapter(getContext());
+        HomeAdapter adapter=new HomeAdapter(getContext(),this);
         home_item.setAdapter(adapter);
 
     }
 
+    @Override
+    public void ItemhomeClick(int id) {
+        Toast.makeText(getContext(), "Item position"+id, Toast.LENGTH_SHORT).show();
+    }
 }

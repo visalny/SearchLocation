@@ -4,19 +4,26 @@ import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.PopupMenu;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.weather.pc.finalckcc_java.R;
+import com.weather.pc.finalckcc_java.callback.HomeCallBackListener;
 
 public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.HomeViewHolder> {
 
     private Context context;
+    private HomeCallBackListener listener;
 
-    public HomeAdapter(Context context) {
+
+    public HomeAdapter(Context context, HomeCallBackListener listener) {
         this.context = context;
+        this.listener = listener;
     }
 
     @NonNull
@@ -38,12 +45,30 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.HomeViewHolder
 
     class HomeViewHolder extends RecyclerView.ViewHolder{
 
-        private ImageView imv_home;
+        private ImageView imv_home,imv_save;
         private TextView tv_name;
         public HomeViewHolder(View itemView) {
             super(itemView);
             imv_home=itemView.findViewById(R.id.imv_home_item);
             tv_name=itemView.findViewById(R.id.tv_name_home_item);
+            imv_save=itemView.findViewById(R.id.btnmenu_item_home);
+
+            imv_save.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    PopupMenu popupMenu=new PopupMenu(context,imv_save);
+                    popupMenu.getMenuInflater().inflate(R.menu.popup_menu_save_item,popupMenu.getMenu());
+                    popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                        @Override
+                        public boolean onMenuItemClick(MenuItem item) {
+                            listener.ItemhomeClick(getAdapterPosition());
+                            return true;
+                        }
+                    });
+                    popupMenu.show();
+                }
+            });
         }
     }
 }
