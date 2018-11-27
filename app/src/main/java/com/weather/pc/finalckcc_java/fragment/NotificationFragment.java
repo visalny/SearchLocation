@@ -2,12 +2,17 @@ package com.weather.pc.finalckcc_java.fragment;
 
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.weather.pc.finalckcc_java.R;
+import com.weather.pc.finalckcc_java.adapter.NotificationAdapter;
 
 
 public class NotificationFragment extends Fragment {
@@ -19,6 +24,7 @@ public class NotificationFragment extends Fragment {
 
     private String mParam1;
     private String mParam2;
+    private RecyclerView recyclerView;
 
 
     public NotificationFragment() {
@@ -51,4 +57,11 @@ public class NotificationFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_notification, container, false);
     }
 
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        recyclerView=view.findViewById(R.id.recycler_notification);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        NotificationAdapter adapter=new NotificationAdapter(getContext());
+        recyclerView.setAdapter(adapter);
+    }
 }

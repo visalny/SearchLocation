@@ -2,15 +2,23 @@ package com.weather.pc.finalckcc_java.fragment;
 
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.weather.pc.finalckcc_java.R;
+import com.weather.pc.finalckcc_java.adapter.HomeAdapter;
+import com.weather.pc.finalckcc_java.adapter.NewItemAdapter;
+import com.weather.pc.finalckcc_java.callback.ItemCallBackListener;
 
 
-public class NewFragment extends Fragment {
+public class NewFragment extends Fragment implements ItemCallBackListener {
 
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -25,7 +33,7 @@ public class NewFragment extends Fragment {
         // Required empty public constructor
     }
 
-
+    private RecyclerView new_item;
     public static NewFragment newInstance(String param1, String param2) {
         NewFragment fragment = new NewFragment();
         Bundle args = new Bundle();
@@ -51,4 +59,17 @@ public class NewFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_new, container, false);
     }
 
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+
+        new_item=view.findViewById(R.id.new_item);
+        new_item.setLayoutManager(new GridLayoutManager(getContext(),3));
+        NewItemAdapter adapter=new NewItemAdapter(this,getContext());
+        new_item.setAdapter(adapter);
+    }
+
+    @Override
+    public void ItemhomeClick(int id) {
+        Toast.makeText(getContext(), ""+id, Toast.LENGTH_SHORT).show();
+    }
 }

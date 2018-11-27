@@ -14,48 +14,48 @@ import android.widget.TextView;
 import com.weather.pc.finalckcc_java.R;
 import com.weather.pc.finalckcc_java.callback.ItemCallBackListener;
 
-public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.HomeViewHolder> {
+public class NewItemAdapter extends RecyclerView.Adapter<NewItemAdapter.NewItemViewHolder> {
 
-    private Context context;
+
     private ItemCallBackListener listener;
+    private Context context;
 
-
-    public HomeAdapter(Context context, ItemCallBackListener listener) {
-        this.context = context;
+    public NewItemAdapter(ItemCallBackListener listener, Context context) {
         this.listener = listener;
+        this.context = context;
     }
 
     @NonNull
     @Override
-    public HomeViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-       View view=LayoutInflater.from(parent.getContext()).inflate(R.layout.homefragment_layout,parent,false);
-        return new HomeViewHolder(view) ;
+    public NewItemViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view=LayoutInflater.from(parent.getContext()).inflate(R.layout.new_itemfragment_layout,parent,false);
+
+        return new NewItemViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull HomeViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull NewItemViewHolder holder, int position) {
 
     }
 
     @Override
     public int getItemCount() {
-        return 10;
+        return 15;
     }
 
-    class HomeViewHolder extends RecyclerView.ViewHolder{
+    class NewItemViewHolder extends RecyclerView.ViewHolder{
 
-        private ImageView imv_home,imv_save;
+        private ImageView imv_new_item,imv_save;
         private TextView tv_name;
-        public HomeViewHolder(View itemView) {
+        public NewItemViewHolder(View itemView) {
             super(itemView);
-            imv_home=itemView.findViewById(R.id.imv_home_item);
-            tv_name=itemView.findViewById(R.id.tv_name_home_item);
-            imv_save=itemView.findViewById(R.id.btnmenu_item_home);
+            imv_new_item=itemView.findViewById(R.id.imv_new_item);
+            imv_save=itemView.findViewById(R.id.btnmenu_item_new);
+            tv_name=itemView.findViewById(R.id.tv_name_new_item);
 
             imv_save.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-
                     PopupMenu popupMenu=new PopupMenu(context,imv_save);
                     popupMenu.getMenuInflater().inflate(R.menu.popup_menu_save_item,popupMenu.getMenu());
                     popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
@@ -68,6 +68,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.HomeViewHolder
                     popupMenu.show();
                 }
             });
+
         }
     }
 }
