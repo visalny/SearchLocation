@@ -11,6 +11,9 @@ import android.widget.ImageView;
 import android.widget.PopupMenu;
 import android.widget.TextView;
 
+import com.github.rubensousa.bottomsheetbuilder.BottomSheetBuilder;
+import com.github.rubensousa.bottomsheetbuilder.BottomSheetMenuDialog;
+import com.github.rubensousa.bottomsheetbuilder.adapter.BottomSheetItemClickListener;
 import com.weather.pc.finalckcc_java.R;
 import com.weather.pc.finalckcc_java.callback.ItemCallBackListener;
 
@@ -56,16 +59,30 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.HomeViewHolder
                 @Override
                 public void onClick(View v) {
 
-                    PopupMenu popupMenu=new PopupMenu(context,imv_save);
-                    popupMenu.getMenuInflater().inflate(R.menu.popup_menu_save_item,popupMenu.getMenu());
-                    popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-                        @Override
-                        public boolean onMenuItemClick(MenuItem item) {
-                            listener.ItemhomeClick(getAdapterPosition());
-                            return true;
-                        }
-                    });
-                    popupMenu.show();
+//                    PopupMenu popupMenu=new PopupMenu(context,imv_save);
+//                    popupMenu.getMenuInflater().inflate(R.menu.popup_menu_save_item,popupMenu.getMenu());
+//                    popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+//                        @Override
+//                        public boolean onMenuItemClick(MenuItem item) {
+//                            listener.ItemhomeClick(getAdapterPosition());
+//                            return true;
+//                        }
+//                    });
+//                    popupMenu.show();
+                    BottomSheetMenuDialog dialog=new BottomSheetBuilder(context,R.style.Theme_Design_BottomSheetDialog)
+                            .setMode(BottomSheetBuilder.MODE_LIST)
+                            .setMenu(R.menu.popup_menu_save_item)
+                            .setBackground(R.color.white)
+                            .setItemClickListener(new BottomSheetItemClickListener() {
+                                @Override
+                                public void onBottomSheetItemClick(MenuItem item) {
+                                    if(item.getItemId()==R.id.item_save){
+                                        listener.ItemhomeClick(getAdapterPosition());
+                                    }
+                                }
+                            })
+                            .createDialog();
+                    dialog.show();
                 }
             });
         }
