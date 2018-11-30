@@ -1,27 +1,27 @@
 {
   "project_info": {
-    "project_number": "346949190641",
-    "firebase_url": "https://searchlocation-10de2.firebaseio.com",
-    "project_id": "searchlocation-10de2",
-    "storage_bucket": "searchlocation-10de2.appspot.com"
+    "project_number": "679356373489",
+    "firebase_url": "https://locationsearching-d7922.firebaseio.com",
+    "project_id": "locationsearching-d7922",
+    "storage_bucket": "locationsearching-d7922.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:346949190641:android:168aeab354efb6d0",
+        "mobilesdk_app_id": "1:679356373489:android:168aeab354efb6d0",
         "android_client_info": {
           "package_name": "com.weather.pc.finalckcc_java"
         }
       },
       "oauth_client": [
         {
-          "client_id": "346949190641-beheh0e0on88s11abb316mv9dnonsc0k.apps.googleusercontent.com",
+          "client_id": "679356373489-3t21od563sudb4m2b3aa7khiug95vkbu.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCuPyhsZVW5uop-KkLQ6RiT2a7RMfccMzY"
+          "current_key": "AIzaSyA9trlqvNjQrl3mgDxyk4e43bS9pwnpPjU"
         }
       ],
       "services": {

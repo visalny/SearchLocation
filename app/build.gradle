@@ -34,6 +34,7 @@ dependencies {
     //firebase
     implementation 'com.google.firebase:firebase-core:16.0.4'
     implementation 'com.google.firebase:firebase-firestore:17.1.2'
+    implementation 'com.google.firebase:firebase-storage:16.0.4'
     //search like google play
     implementation 'com.miguelcatalan:materialsearchview:1.4.0'
     //butter knife

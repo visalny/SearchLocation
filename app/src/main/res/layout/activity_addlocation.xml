@@ -17,44 +17,55 @@
             android:layout_gravity="center"
             android:textSize="28sp" />
         <EditText
+            android:id="@+id/edtname_addlocation"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Enter Location Name"
             />
         <EditText
+            android:id="@+id/edtemail_addlocation"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Enter Email"
             />
         <EditText
+            android:id="@+id/edtwebsite_addlocation"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Enter Website"
             />
         <EditText
+            android:id="@+id/edtfacepage_addlocation"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Enter Facebook page"
             />
         <EditText
+            android:id="@+id/edtcontact_addlocation"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Enter Cotact"
             />
         <EditText
+            android:id="@+id/edtaddress_addlocation"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Enter Location"
             />
-        <de.hdodenhof.circleimageview.CircleImageView
+        <ImageView
+            android:id="@+id/locationImage"
             android:layout_width="80dp"
             android:layout_height="80dp"
+            android:layout_marginLeft="5dp"
+            android:onClick="browseImage"
             android:src="@drawable/ic_add_a_photo_black_24dp"/>
         <Button
+            android:id="@+id/btnsubmit_addlocation"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Submit"
-            android:layout_gravity="center"/>
+            android:layout_gravity="center"
+            android:onClick="submit"/>
     </LinearLayout>
 
 </ScrollView>
