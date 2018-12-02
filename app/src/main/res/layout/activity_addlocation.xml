@@ -5,66 +5,128 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activity.AddlocationActivity">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_margin="15dp">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Add Location"
             android:layout_gravity="center"
-            android:textSize="28sp" />
+            android:textSize="28sp"
+            android:textColor="#F4426B"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Location Name"
+            android:layout_marginTop="20dp"
+            android:textColor="@color/titleEditText"/>
+
         <EditText
             android:id="@+id/edtname_addlocation"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Enter Location Name"
+            android:drawableEnd="@drawable/ic_add_location_name"
             />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Email"
+            android:layout_marginTop="5dp"
+            android:textColor="@color/titleEditText"/>
+
         <EditText
             android:id="@+id/edtemail_addlocation"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Enter Email"
+            android:drawableEnd="@drawable/ic_add_location_email"
             />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Website"
+            android:layout_marginTop="5dp"
+            android:textColor="@color/titleEditText"/>
+
         <EditText
             android:id="@+id/edtwebsite_addlocation"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Enter Website"
+            android:drawableEnd="@drawable/ic_add_location_website"
             />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Facebook Page"
+            android:layout_marginTop="5dp"
+            android:textColor="@color/titleEditText"/>
+
         <EditText
             android:id="@+id/edtfacepage_addlocation"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Enter Facebook page"
+            android:hint="Enter Facebook Page"
+            android:drawableEnd="@drawable/ic_add_location_facebook_page"
             />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Contact"
+            android:layout_marginTop="5dp"
+            android:textColor="@color/titleEditText"/>
+
         <EditText
             android:id="@+id/edtcontact_addlocation"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Enter Cotact"
+            android:drawableEnd="@drawable/ic_add_location_phone"
             />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Location"
+            android:layout_marginTop="5dp"
+            android:textColor="@color/titleEditText"/>
+
         <EditText
             android:id="@+id/edtaddress_addlocation"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Enter Location"
+            android:drawableEnd="@drawable/ic_add_location_place"
             />
         <ImageView
             android:id="@+id/locationImage"
             android:layout_width="80dp"
             android:layout_height="80dp"
+            android:layout_marginTop="15dp"
             android:layout_marginLeft="5dp"
             android:onClick="browseImage"
             android:src="@drawable/ic_add_a_photo_black_24dp"/>
         <Button
             android:id="@+id/btnsubmit_addlocation"
-            android:layout_width="wrap_content"
+            android:layout_width="250dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
             android:text="Submit"
+            android:textSize="20dp"
             android:layout_gravity="center"
+            android:background="#F4426B"
+            android:textColor="@color/white"
             android:onClick="submit"/>
     </LinearLayout>
 

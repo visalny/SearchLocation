@@ -7,4 +7,5 @@
     <color name="black">#000000</color>
     <color name="editBG">#DADADA</color>
     <color name="signupButtonBG">#9ED138</color>
+    <color name="titleEditText">#42c2f4</color>
 </resources>
