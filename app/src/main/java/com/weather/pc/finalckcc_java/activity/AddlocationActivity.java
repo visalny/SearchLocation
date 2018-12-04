@@ -106,7 +106,7 @@ private String location_name,location_email,location_address,location_website,
         location.put("location_website",location_website);
         location.put("location_contact",location_contact);
         location.put("location_address",location_address);
-        //location.put("location_image",imageUrl);
+        location.put("location_image",imageUrl);
     // upload data to firebase   //
         FirebaseFirestore db=FirebaseFirestore.getInstance();
         db.collection("locations").add(location).addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
@@ -138,7 +138,7 @@ private String location_name,location_email,location_address,location_website,
             try {
                 filepath=MediaStore.Images.Media.getBitmap(getContentResolver(), data.getData());
                 locationImage.setImageBitmap(filepath);
-                Log.e(TAG, "onActivityResult: "+filepath );
+
             } catch (IOException e) {
                 e.printStackTrace();
             }
