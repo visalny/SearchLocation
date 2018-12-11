@@ -14,18 +14,30 @@ import android.widget.TextView;
 import com.github.rubensousa.bottomsheetbuilder.BottomSheetBuilder;
 import com.github.rubensousa.bottomsheetbuilder.BottomSheetMenuDialog;
 import com.github.rubensousa.bottomsheetbuilder.adapter.BottomSheetItemClickListener;
+import com.squareup.picasso.Picasso;
 import com.weather.pc.finalckcc_java.R;
 import com.weather.pc.finalckcc_java.callback.ItemCallBackListener;
+import com.weather.pc.finalckcc_java.entity.Location;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.HomeViewHolder> {
 
     private Context context;
     private ItemCallBackListener listener;
+    private List<Location> locationList;
 
 
     public HomeAdapter(Context context, ItemCallBackListener listener) {
         this.context = context;
         this.listener = listener;
+        locationList=new ArrayList<>();
+    }
+
+    public void AddData(List<Location> locations){
+        locationList.addAll(locations);
+        notifyDataSetChanged();
     }
 
     @NonNull
@@ -37,12 +49,18 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.HomeViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull HomeViewHolder holder, int position) {
-
+        Location location=locationList.get(position);
+        holder.tv_name.setText(location.getLocation_address());
+        Picasso.get()
+                .load(location.getLocation_image())
+                .placeholder(R.drawable.ic_save_black_24dp)
+                .error(R.drawable.ic_save_black_24dp)
+                .into(holder.imv_home);
     }
 
     @Override
     public int getItemCount() {
-        return 10;
+        return locationList.size();
     }
 
     class HomeViewHolder extends RecyclerView.ViewHolder{
@@ -83,6 +101,13 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.HomeViewHolder
                             })
                             .createDialog();
                     dialog.show();
+                }
+            });
+
+            imv_home.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    listener.ItemClickImage(getAdapterPosition());
                 }
             });
         }

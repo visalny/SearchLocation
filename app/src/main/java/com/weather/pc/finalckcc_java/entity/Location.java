@@ -1,12 +1,22 @@
 package com.weather.pc.finalckcc_java.entity;
 
 public class Location {
+    private String id;
     private String locaton_name;
     private String location_email;
     private String location_facepage;
     private String location_website;
     private String location_address;
     private String location_contact;
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
     private String location_image;
 
     public Location() {

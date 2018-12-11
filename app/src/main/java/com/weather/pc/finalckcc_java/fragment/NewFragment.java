@@ -72,4 +72,9 @@ public class NewFragment extends Fragment implements ItemCallBackListener {
     public void ItemhomeClick(int id) {
         Toast.makeText(getContext(), ""+id, Toast.LENGTH_SHORT).show();
     }
+
+    @Override
+    public void ItemClickImage(int position) {
+
+    }
 }

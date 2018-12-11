@@ -45,6 +45,8 @@ dependencies {
     implementation 'com.android.support:cardview-v7:27.1.1'
     //bottom sheet dialog library
     implementation 'com.github.rubensousa:bottomsheetbuilder:1.6.1'
+    //lead image from url
+    implementation 'com.squareup.picasso:picasso:2.71828'
 
 }
 
